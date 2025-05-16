@@ -87,21 +87,21 @@ const RecipeApp = () => {
 
   return (
     //the outmost green div
-    <div className="min-h-screen flex items-center justify-center bg-green-100">
+    <div className="flex items-center justify-center min-h-screen bg-green-100">
       {/* second outer white div  */}
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
-        <h1 className="text-3xl font-bold mb-6 text-center text-green-800">
+      <div className="w-full max-w-2xl p-6 bg-white rounded-lg shadow-lg">
+        <h1 className="mb-6 text-3xl font-bold text-center text-green-800">
           Recipe Book
         </h1>
 
         {/* div for input fields  */}
-        <div className="space-y-4 mb-6">
+        <div className="mb-6 space-y-4">
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Recipe Name"
-            className="w-full px-4 py-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           />
 
           <input
@@ -109,30 +109,29 @@ const RecipeApp = () => {
             value={ingredients}
             onChange={(e) => setIngredients(e.target.value)}
             placeholder="Ingredients (comma separated)"
-            className="w-full px-4 py-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           />
 
           <textarea
-            // type="text"
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
             placeholder="Instructions"
-            className="w-full px-4 py-2 border rounded-lg border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
           />
 
-          <div className=" flex justify-between">
+          <div className="flex justify-between ">
             {editingRecipe ? (
               <>
                 <button
                   onClick={handleUpdateRecipe}
-                  className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="px-4 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 >
                   Update Recipe
                 </button>
 
                 <button
                   onClick={handleCancelEdit}
-                  className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                  className="px-4 py-2 text-white bg-gray-500 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500"
                 >
                   Cancel
                 </button>
@@ -141,7 +140,7 @@ const RecipeApp = () => {
               <>
                 <button
                   onClick={handleAddRecipe}
-                  className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
+                  className="px-4 py-2 text-white bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-500"
                 >
                   Add Recipe
                 </button>
@@ -154,31 +153,31 @@ const RecipeApp = () => {
           {recipes.map((recipe) => (
             <li
               key={recipe.id}
-              className="p-4 bg-green-50 rounded-lg shadow-sm"
+              className="p-4 rounded-lg shadow-sm bg-green-50"
             >
-              <h2 className="text-xl font-semibold text-green-800 mb-2">
+              <h2 className="mb-2 text-xl font-semibold text-green-800">
                 {recipe.name}
               </h2>
 
-              <p className="text-gray-700 mb-2">
+              <p className="mb-2 text-gray-700">
                 <strong>Ingredients: {recipe.ingredients.join(", ")}</strong>
               </p>
      
-              <p className="text-gray-700 mb-2">
+              <p className="mb-2 text-gray-700">
                 <strong>Instrucions: {recipe.instructions}</strong>
               </p>
 
               <div className="flex justify-between">
                 <button
                   onClick={() => handleEditRecipe(recipe)}
-                  className="bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                  className="px-4 py-2 text-white bg-yellow-500 rounded-lg hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500"
                 >
                   Edit
                 </button>
 
                 <button
                   onClick={() => removeRecipe(recipe.id)}
-                  className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="px-4 py-2 text-white bg-red-500 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
                 >
                   Delete
                 </button>
